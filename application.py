@@ -36,10 +36,16 @@ def register():
             return render_template("error.html", message="Please enter a username.")
 
         # Ensure password was submitted
+        if not request.form.get("password"):
+            return render_template("error.html", message="Please enter a password.")
 
         # Ensure password confirmation was submitted
+        if not request.form.get("password_confirmation"):
+            return render_template("error.html", message="Please confirm your password.")
 
         # Ensure password and password confirmation match
+        if request.form.get("password") != request.form.get("password_confirmation"):
+            return render_template("error.html", message="Password confirmation does not match.")
 
     # User reached rout via GET
     else:
