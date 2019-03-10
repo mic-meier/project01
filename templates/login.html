@@ -1,5 +1,19 @@
 {% extends "layout.html" %}
 
-{% block body %}
-    {{ message }}
+{% block title %}
+    Log in
+{% endblock %}
+
+{% block main %}
+    <form action="/login" method="post">
+        <div class="form-group">
+            <label for="username_input">Username</label>
+            <input type="text" class="form-control" id="username_input" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="password_input">Password</label>
+            <input type="password" class="form-control" id="password_input" name="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
 {% endblock %}

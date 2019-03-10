@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+    <form action="/search" method="post">
+        <div class="form-group">
+            <label for="title_input">Title</label>
+            <input type="text" class="form-control" id="title_input" name="title" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <label for="author_input">Author</label>
+            <input type="text" class="form-control" id="author_input" name="author" placeholder="Author">
+        </div>
+        <div class="form-group">
+            <label for="isbn_input">ISBN</label>
+            <input type="text" class="form-control" id="isbn_input" name="isbn" placeholder="ISBN">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+{% endblock %}
+
+{% block body %}
+    <div class="col-12" align="center">
+        <h3>Results</h3>
+    </div>
+    <div class="row justify-content-center">
+        <div width="auto" align="center">
+            <ul class="list-group">
+                {% for book in books %}
+                    {% for index in books %}
+                        <a href="/book/{{ index[4] }}" class="list-group-item list-group-item-action">"{{ index[0] }}" by {{ index[1] }}.</a>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-12" align="center">
+        {{ message }}
+    </div>
+{% endblock %}
