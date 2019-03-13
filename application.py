@@ -6,8 +6,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from helpers import login_required
+
 app = Flask(__name__)
 
+# Ensure templates are auto-reloaded
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 # Check for environment variable
 if not os.getenv("DATABASE_URL"):
@@ -122,6 +126,7 @@ def logout():
 
 
 @app.route("/search", methods=["GET", "POST"])
+@login_required
 def search():
 
     # User reached route via POST
@@ -129,29 +134,32 @@ def search():
 
         # If searched by title
         if request.form.get("title"):
-            books = db.execute("SELECT title, author, isbn, year_published, id FROM books WHERE title LIKE :title",
+            books = db.execute("SELECT DISTINCT title, author, isbn, year_published, id "
+                               "FROM books WHERE title LIKE :title",
                                {"title": '%'+request.form.get("title")+'%'}).fetchall()
             if not books:
-                return render_template("search.html", message="Sorry, could not found a book with this title.")
+                return render_template("search.html", message="Sorry, could not find a book with this title.")
             else:
-                return render_template("search.html", books=books)
+                return render_template("search.html", results="Results", books=books)
 
         # If searched by author
         elif request.form.get("author"):
-            books = db.execute("SELECT title, author, isbn, year_published, id FROM books WHERE author LIKE :author",
+            books = db.execute("SELECT DISTINCT title, author, isbn, year_published, id "
+                               "FROM books WHERE author LIKE :author",
                                {"author": '%'+request.form.get("author")+'%'}).fetchall()
             if not books:
                 return render_template("search.html", message="Sorry, could not find a book from this author.")
             else:
-                return render_template("search.html", books=books)
+                return render_template("search.html", results="Results", books=books)
 
         elif request.form.get("isbn"):
-            books = db.execute("SELECT title, author, isbn, year_published, id FROM books WHERE isbn LIKE :isbn",
+            books = db.execute("SELECT DISTINCT title, author, isbn, year_published, id "
+                               "FROM books WHERE isbn LIKE :isbn",
                                {"isbn": '%'+request.form.get("isbn")+'&'}).fetchall()
             if not books:
                 return render_template("search.html", message="Sorry, could not find a book with this ISBN.")
             else:
-                return render_template("search.html", books=books)
+                return render_template("search.html", results="Results", books=books)
 
         else:
             return render_template("error.html", message="Please enter Title, Author, or ISBN.")
@@ -167,7 +175,7 @@ def books(id):
     book = db.execute("SELECT title, author, year_published, isbn FROM books WHERE id = :id",
                       {"id": id}).fetchall()
 
-    return render_template("books.html", message=book)
+    return render_template("books.html", book=book)
 
 
 if __name__ == '__main__':

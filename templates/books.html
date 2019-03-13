@@ -4,7 +4,28 @@
     Book
 {% endblock %}
 
+{% block main %}
+    <table class="table table-borderless">
+    <tbody>
+        <tr>
+            <th scope="row">Title:</th>
+            <td>{{ book[0][0] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Author:</th>
+            <td>{{ book[0][1] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Year published:</th>
+            <td>{{ book[0][2] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">ISBN:</th>
+            <td>{{ book[0][3] }}</td>
+        </tr>
+    </tbody>
+    </table>
 
-{% block body %}
-    {{ message }}
 {% endblock %}
+
+

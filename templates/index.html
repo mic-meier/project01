@@ -1,9 +1,31 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Index
+    Welcome to Books!
 {% endblock %}
 
-{% block body %}
-    Insert form here
+{% block main %}
+<!-- Welcome section-->
+<div class="row welcome text-center">
+    <div class="col-12">
+        <h1 class="display-4">Welcome to Books!</h1>
+    </div>
+    <hr>
+    <div class="col-12">
+        <p class="lead">
+            Welcome to Books! the world's leading page for everything about... Books!
+            Search for your favorite books by Title, Author, or ISBN. Once found, rate them and see what other
+            people's opinions are.
+        </p>
+    </div>
+    <hr>
+</div>
+<div class="container-fluid padding">
+    <div class="row" align="center">
+    <div class="col-12">
+        <a href="/search"><img class="img-fluid" src="https://irishmssoftcd.files.wordpress.com/2017/10/cropped-tcd-library-11.jpg"></a>
+    </div>
+    </div>
+</div>
 {% endblock %}
+

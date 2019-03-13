@@ -2,15 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <<title>Books: {% block title %}{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles.css?v=1">
+
+    <title>Books: {% block title %}{% endblock %}</title>
 
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light bg-light border">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <a class="navbar-brand" href="/">Books</a>
     <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
@@ -32,12 +39,30 @@
     </div>
 </nav>
 
-<main class="container p-5">
+<main class="container-fluid padding">
     {% block main %}{% endblock %}
 </main>
-
-{% block body %}
-{% endblock %}
-
+<!-- Footer -->
+<footer>
+<div class="container-fluid padding">
+<div class="row text-center">
+  <div class="col-12">
+    <hr class="light">
+    <h5>Contact Information</h5>
+    <hr class="light">
+    <p>mic-meier</p>
+    <p>GitHub: mic-meier</p>
+    <p>mic.l.meier@gmail.com</p>
+    <p>+41-78-734-83-55</p>
+  </div>
+  <div class="col-12">
+    <hr class="light">
+    <h5>&copy; mic-meier</h5>
+  </div>
+</div>
+</div>
+</footer>
+</body>
+</html>
 </body>
 </html>

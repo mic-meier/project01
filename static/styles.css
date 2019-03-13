@@ -1,0 +1,87 @@
+html, main, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    color: #373737;
+    background-color: #F4F4F4;
+}
+h1 {
+    color: #373737;
+}
+.navbar {
+    background-color: #373737 !important;
+    padding: 0.5rem;
+}
+.navvar.nav li{
+    padding-right: 5rem;
+}
+.navbar-brand {
+    color: #C0B283 !important;
+}
+.nav-link {
+    color: #C0B283 !important;
+    font-size: 1.1em !important;
+}
+.padding {
+    padding: 2rem;
+}
+.welcome {
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+.welcome hr {
+    border-top: 2px solid #C0B283;
+    width: 95%;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+}
+footer {
+    background-color: #373737;
+    color: #F4F4F4;
+    padding-top: 2rem;
+}
+hr.light {
+    border-top: 1px solid #C0B283;
+    width: 75%;
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+#search {
+    background-color: #DCD0C0;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+div .col-md {
+    padding: 4rem;
+    background-color: #F4F4F4;
+}
+
+.list-group-item {
+    background: #C0B283;
+    padding: 1rem;
+}
+
+.row {
+    padding: 1rem;
+}
+
+/*---Media Queries---*/
+@media(max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+
+}
+@media (max-width: 576px) {
+
+}
+
+/*--- Bootstrap Padding Fix ---*/
+[class*="col-"] {
+	padding: 1rem;
+}
