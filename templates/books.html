@@ -5,27 +5,62 @@
 {% endblock %}
 
 {% block main %}
-    <table class="table table-borderless">
-    <tbody>
-        <tr>
-            <th scope="row">Title:</th>
-            <td>{{ book[0][0] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Author:</th>
-            <td>{{ book[0][1] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Year published:</th>
-            <td>{{ book[0][2] }}</td>
-        </tr>
-        <tr>
-            <th scope="row">ISBN:</th>
-            <td>{{ book[0][3] }}</td>
-        </tr>
-    </tbody>
+<div class="row">
+    <div class="col-sm-4">
+        <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <th scope="row">Title:</th>
+                <td>{{ book[0][0] }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Author:</th>
+                <td>{{ book[0][1] }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Year published:</th>
+                <td>{{ book[0][2] }}</td>
+            </tr>
+            <tr>
+                <th scope="row">ISBN:</th>
+                <td>{{ book[0][3] }}</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>
+<div class="row reviews text-center">
+    <div class="col-12">
+        <h3 class="display-4">Book Reviews</h3>
+    </div>
+    <hr>
+    <div class="col-12">
+        <p class="lead">See what other users thought of this book. Be sure to leave your own review!</p>
+    </div>
+    <hr>
+</div>
+<div class="row">
+    <div class="col-12">
+    {% for book_review in book_reviews %}
+    <table class="table">
+       <tbody>
+            <tr>
+                <td>User:</td>
+                <td>{{ book_review[2] }}</td>
+            </tr>
+            <tr>
+                <td>Rating:</td>
+                <td>{{ book_review[1] }}</td>
+            </tr>
+            <tr>
+                <td>Review:</td>
+                <td>{{ book_review[0] }}</td>
+            </tr>
+       </tbody>
     </table>
-
+    {% endfor %}
+    </div>
+</div>
 {% endblock %}
 
 

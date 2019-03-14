@@ -175,7 +175,11 @@ def books(id):
     book = db.execute("SELECT title, author, year_published, isbn FROM books WHERE id = :id",
                       {"id": id}).fetchall()
 
-    return render_template("books.html", book=book)
+    book_reviews = db.execute("SELECT review, rating, username FROM reviews JOIN users on reviews.user_id = users.id "
+                             "WHERE book_id = :book_id",
+                         {"book_id": id}).fetchall()
+
+    return render_template("books.html", book=book, book_reviews=book_reviews)
 
 
 if __name__ == '__main__':

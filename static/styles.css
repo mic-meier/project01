@@ -36,6 +36,12 @@ h1 {
     margin-top: 0.3rem;
     margin-bottom: 1rem;
 }
+.reviews hr {
+    border-top: 2px solid #C0B283;
+    width: 95%;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+}
 footer {
     background-color: #373737;
     color: #F4F4F4;
